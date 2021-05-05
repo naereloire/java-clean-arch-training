@@ -1,11 +1,18 @@
 version: '3'
 services:
+  flyway:
+    image: flyway/flyway
+    command: -url=jdbc:postgresql://db:5432/postgres_db -user=postgres -password=postgres -connectRetries=60 migrate
+    volumes:
+      - ../src/main/resources/db/migration:/flyway/sql
+    depends_on:
+      - db
   db:
     image: postgres:11.2-alpine
     ports:
       - "5432:5432"
-    volumes:
-      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+#    volumes:
+#      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
