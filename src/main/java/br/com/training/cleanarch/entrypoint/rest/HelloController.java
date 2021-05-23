@@ -1,4 +1,4 @@
-package br.com.training.cleanarch.entrypoint;
+package br.com.training.cleanarch.entrypoint.rest;
 
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
