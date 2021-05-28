@@ -7,8 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//anotações de tabela iriam em outra camada?
-//Classe de dominio deve ser um objeto puro?
+//Implementação futura/ isolar ainda mais
+//criar objeto de domain só para bd
 @Entity
 @Table(name = "categories", schema="recommendation")
 public class CategoryEntity {
