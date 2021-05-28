@@ -24,6 +24,3 @@
 ****
 #### Clean Arch Layers
 ****
-#### Refs
-Tutorial - Esse vai passo a passo :  
-[Clean Architecture with Java 11](https://medium.com/slalom-build/clean-architecture-with-java-11-f78bba431041)
