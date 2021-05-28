@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 //anotações de tabela iriam em outra camada?
 //Classe de dominio deve ser um objeto puro?
-//
 @Entity
 @Table(name = "categories", schema="recommendation")
 public class CategoryEntity {
@@ -31,7 +30,6 @@ public class CategoryEntity {
     public String getCategory_name() {
         return category_name;
     }
-
     public void setCategory_name(String category_name) {
         this.category_name = category_name;
     }
