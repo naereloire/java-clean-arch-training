@@ -31,5 +31,3 @@ public class CategoryController {
         return CategoryResponse.mapToCategoryResponse(categoryList);
     }
 }
-//fazer outros controllers para listar subcategorias
-//listar produtos
