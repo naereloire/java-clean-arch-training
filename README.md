@@ -12,13 +12,13 @@
 ##### ` docker rm $(docker ps -a -q)`
 ##### `docker stop $(docker ps -a -q)`
 ****
-#### *Postgre*
+#### *Postgres*
 ##### `systemctl stop postgresql`
 ****
 #### DER
 
 <p align="center">
-<img src=".java-clean-arch-training/images/der" width="200" heigth="200">
+<img src=".java-clean-arch-training/images/der" width="200" height="200">
 </p>
 
 ****
