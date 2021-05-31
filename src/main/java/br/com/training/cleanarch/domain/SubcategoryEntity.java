@@ -19,6 +19,7 @@ public class SubcategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
     private Long id;
 
     @Column(name = "subcategory_name", nullable = false)

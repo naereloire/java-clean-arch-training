@@ -47,8 +47,6 @@ public class CategoryResponse {
         }
         return categoryResponses;
     }
-
-    //com java 8
 //    public static List<CategoryResponse> mapToCategoryResponseDois(List<CategoryEntity> categoryEntityList) {
 //        return categoryEntityList.stream().map(categoryEntity -> new CategoryResponse(categoryEntity.getId(),
 //                categoryEntity.getCategory_name())).collect(Collectors.toList());
