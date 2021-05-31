@@ -28,7 +28,7 @@ public class SubcategoryController {
     })
     @RequestMapping(value = "/subcategory", method = RequestMethod.GET, produces = "application/json")
     public List<SubcategoryResponse> getAllSubategories() {
-        List<SubcategoryEntity> subcategoryList = findSubcategory.findAllSubcategories();
+        List<SubcategoryEntity> subcategoryList = findSubcategory.findAllSubCategories();
         return SubcategoryResponse.mapToSubcategoryResponse(subcategoryList);
     }
 }
