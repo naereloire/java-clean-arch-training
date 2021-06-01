@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SubcategoryResponse {
+
     @JsonProperty("subcategoria_id")
     @Getter
     private Long subcategoryId;
@@ -22,7 +23,7 @@ public class SubcategoryResponse {
     @Setter
     private String subcategoryName;
 
-    @JsonProperty("categorie_name")
+    @JsonProperty("categoria_name")
     @Getter
     private String categoryName;
 
@@ -31,6 +32,6 @@ public class SubcategoryResponse {
                 subcategoryEntity.getId(),
                 subcategoryEntity.getSubcategory_name(),
                 subcategoryEntity.getCategoryEntity().getCategory_name()
-                )).collect(Collectors.toList());
+        )).collect(Collectors.toList());
     }
 }

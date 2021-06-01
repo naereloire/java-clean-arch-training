@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "products", schema = "recommendation", catalog = "recommendation")
-public class ProductsEntity {
+public class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,7 @@ public class ProductsEntity {
 
     @Getter
     @Setter
-    private Long price;
+    private Long productPrice;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subcategory_id", nullable = false)
