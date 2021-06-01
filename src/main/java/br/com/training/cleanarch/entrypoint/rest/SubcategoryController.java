@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 public class SubcategoryController {
 
-    private FindSubcategory findSubcategory;
+    private final FindSubcategory findSubcategory;
 
     public SubcategoryController(FindSubcategory findSubcategory) {
         this.findSubcategory = findSubcategory;

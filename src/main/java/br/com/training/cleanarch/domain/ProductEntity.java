@@ -31,7 +31,7 @@ public class ProductEntity {
 
     @Getter
     @Setter
-    private Long productPrice;
+    private Long price;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subcategory_id", nullable = false)

@@ -26,7 +26,7 @@ public class ProductResponse {
     @JsonProperty("preco_produto")
     @Getter
     @Setter
-    private Long productPrice;
+    private Long price;
 
     @JsonProperty("subcategory_name")
     @Getter
@@ -36,7 +36,7 @@ public class ProductResponse {
         return productEntityList.stream().map(productEntity -> new ProductResponse(
                 productEntity.getId(),
                 productEntity.getProductName(),
-                productEntity.getProductPrice(),
+                productEntity.getPrice(),
                 productEntity.getSubcategoryEntity().getSubcategory_name()
         )).collect(Collectors.toList());
     }
