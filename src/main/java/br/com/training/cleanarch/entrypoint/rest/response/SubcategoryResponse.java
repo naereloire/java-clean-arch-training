@@ -22,8 +22,15 @@ public class SubcategoryResponse {
     @Setter
     private String subcategoryName;
 
-    public static List<SubcategoryResponse> mapToSubcategoryResponse(List<SubcategoryEntity> subcategoryEntityList){
-        return subcategoryEntityList.stream().map(subcategoryEntity -> new SubcategoryResponse(subcategoryEntity.getId(),
-                subcategoryEntity.getSubcategory_name())).collect(Collectors.toList());
+    @JsonProperty("categorie_name")
+    @Getter
+    private String categoryName;
+
+    public static List<SubcategoryResponse> mapToSubcategoryResponse(List<SubcategoryEntity> subcategoryEntityList) {
+        return subcategoryEntityList.stream().map(subcategoryEntity -> new SubcategoryResponse(
+                subcategoryEntity.getId(),
+                subcategoryEntity.getSubcategory_name(),
+                subcategoryEntity.getCategoryEntity().getCategory_name()
+                )).collect(Collectors.toList());
     }
 }

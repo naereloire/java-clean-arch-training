@@ -10,10 +10,8 @@ import java.util.List;
 
 @Component
 @AllArgsConstructor
-@NoArgsConstructor
 public class FindSubcategory {
     private SubcategoryGateway subcategoryGateway;
-
     public List<SubcategoryEntity> findAllSubCategories() {
         return subcategoryGateway.findAll();
     }

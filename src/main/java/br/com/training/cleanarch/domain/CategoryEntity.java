@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "categories", schema = "recommendation")
+@Table(name = "categories", schema = "recommendation", catalog = "recommendation")
 public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,3 +29,4 @@ public class CategoryEntity {
 }
 //Implementação futura/ isolar ainda mais
 //criar objeto de domain só para bd
+//poderia listar aqui as subcats
