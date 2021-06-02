@@ -2,9 +2,10 @@ package br.com.training.cleanarch.entrypoint.rest;
 
 import br.com.training.cleanarch.domain.ProductEntity;
 import br.com.training.cleanarch.entrypoint.rest.response.ProductResponse;
-import br.com.training.cleanarch.usecase.FindProducts;
+import br.com.training.cleanarch.usecase.FindProductsById;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,10 +14,10 @@ import java.util.List;
 
 @RestController
 public class ProductController {
-    private final FindProducts findProducts;
+    private final FindProductsById findProductsById;
 
-    public ProductController(FindProducts findProducts) {
-        this.findProducts = findProducts;
+    public ProductController(FindProductsById findProductsById) {
+        this.findProductsById = findProductsById;
     }
 
     @ApiResponses(value = {
@@ -25,9 +26,9 @@ public class ProductController {
             @ApiResponse(code = 500, message = "erro inesperado"),
     })
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET, produces = "application/json")
-    public List<ProductResponse> getAllProducts() {
-        List<ProductEntity> productList = findProducts.findAllProducts();
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.GET, produces = "application/json")
+    public List<ProductResponse> getProductsByParentId(@PathVariable("id") Long id) {
+        List<ProductEntity> productList = findProductsById.findBySubcategoryId(id);
         return ProductResponse.mapToProductResponse(productList);
     }
 }

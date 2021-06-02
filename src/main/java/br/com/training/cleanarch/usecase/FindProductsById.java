@@ -9,13 +9,13 @@ import java.util.List;
 
 @Component
 @AllArgsConstructor
-public class FindProducts {
+public class FindProductsById {
 
     final ProductGateway productGateway;
 
-    public List<ProductEntity> findAllProducts() {
+    public List<ProductEntity> findBySubcategoryId(Long subcategoryId) {
 
-        return productGateway.findAll();
+        return productGateway.findByParentId(subcategoryId);
     }
 
 }
