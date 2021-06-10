@@ -9,7 +9,7 @@
 #### *Docker*
 ##### `docker-compose up`
 ##### `docker-compose down`
-##### ` docker rm $(docker ps -a -q)`
+##### ` 'docker rm $(docker ps -a -q)'`
 ##### `docker stop $(docker ps -a -q)`
 ****
 #### *Postgres*

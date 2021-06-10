@@ -14,9 +14,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -31,12 +33,20 @@ public class SubcategoryControllerTest {
     @Test
     @DisplayName("GET /subcategory success")
     void testGetAllCategorySuccess() throws Exception {
-        SubcategoryEntity subcategoryEntity = new SubcategoryEntity(1L, "Livros", new CategoryEntity(1L, "Leitura"));
-        Mockito.doReturn(Lists.newArrayList(subcategoryEntity)).when(findSubcategoryById).findByCategoryId(2L);
 
-        mockMvc.perform(get("/subcategory/{id}"))
+        CategoryEntity categoryEntity = new CategoryEntity(1L, "Leitura");
+        SubcategoryEntity subcategoryEntity = new SubcategoryEntity(1L, "Livros", categoryEntity);
+
+        Mockito.doReturn(Lists.newArrayList(subcategoryEntity)).when(findSubcategoryById).findByCategoryId(1L);
+
+        mockMvc.perform(get("/subcategory/1"))
                 // Validate the response code and content type
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+
+                // Validate the returned fields
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].subcategoria_id", is(1)))
+                .andExpect(jsonPath("$[0].subcategoria_nome", is("Livros")));
     }
 }
