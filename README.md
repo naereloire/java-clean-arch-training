@@ -14,6 +14,8 @@
 ****
 #### *Postgres*
 ##### `systemctl stop postgresql`
+##### `netstat -ltnp | grep -w ':8080`
+#####  ``
 ****
 #### DER
 
